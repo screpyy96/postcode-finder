@@ -12,6 +12,7 @@ import { AppWrapper, Row, Styledfrom, TextInput } from "./home.styled";
 import { useDebounce } from "../util/hook/debounce";
 import { API_URL } from "../config";
 import { Autocomplete } from "formik-material-ui-lab";
+import { getSlug } from "../util";
 
 const Home = () => {
   const [term, setTerm] = useState("");
@@ -19,7 +20,7 @@ const Home = () => {
 
   const onSubmit = (values) => {
     console.log(values);
-    navigate(`/find/${values.autocomplete || term}`);
+    navigate(`/find/${getSlug(values.autocomplete || term, true)}`);
   };
 
   const handlePress = (e) => {

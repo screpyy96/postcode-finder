@@ -3,6 +3,7 @@ import { useParams } from "@reach/router";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Table from "../table";
+import { getSlug } from "../util";
 import { getApiNearestPostcode, getApiPostcode } from "../util/postcode";
 import { Wrapper } from "./postcode.style";
 
@@ -12,7 +13,8 @@ const Postcode = () => {
     nearest: [],
   });
 
-  const { postcode } = useParams();
+  const params = useParams();
+  const postcode = getSlug(params.postcode, false);
 
   useEffect(() => {
     const getResult = async () => {

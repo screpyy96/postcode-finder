@@ -1,1 +1,2 @@
-export { default } from "./postcode";
+export * from "./postcode";
+export { getSlug } from "./slug";
