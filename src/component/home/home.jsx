@@ -18,7 +18,8 @@ const Home = () => {
   const [autocompleteData, setAutocompleteData] = useState([]);
 
   const onSubmit = (values) => {
-    navigate(`/find/${values.postcode}`);
+    console.log(values);
+    navigate(`/find/${values.autocomplete || term}`);
   };
 
   const handlePress = (e) => {
@@ -46,11 +47,7 @@ const Home = () => {
 
   return (
     <AppWrapper>
-      <Formik
-        initialValues={initialFormValues}
-        validationSchema={postcodeSchema}
-        onSubmit={onSubmit}
-      >
+      <Formik initialValues={initialFormValues} onSubmit={onSubmit}>
         {({ isValid }) => (
           <Styledfrom>
             <Row>
@@ -61,12 +58,15 @@ const Home = () => {
               options={autocompleteData}
               onKeyUp={handlePress}
               component={Autocomplete}
-              id="autocomplete"
-              label="search"
               name="autocomplete"
               variant="outlined"
               renderInput={(params) => (
-                <MuiTextField {...params} label="Postcode" variant="outlined" />
+                <MuiTextField
+                  {...params}
+                  label="Postcode"
+                  name="autocomplete"
+                  variant="outlined"
+                />
               )}
             />
             {/* <Field
