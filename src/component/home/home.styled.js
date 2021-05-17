@@ -1,5 +1,9 @@
-import { Form } from "formik";
+import { Field, Form } from "formik";
 import styled from "styled-components";
+
+export const TextInput = styled(Field)`
+  min-width: 160px;
+`;
 
 export const Styledfrom = styled(Form)`
   display: grid;

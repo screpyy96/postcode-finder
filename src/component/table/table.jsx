@@ -4,10 +4,8 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  Typography,
 } from "@material-ui/core";
 import React from "react";
-import { number } from "yup";
 import { StyledPaper } from "./table.style";
 
 const Table = ({ list = {} }) => {
