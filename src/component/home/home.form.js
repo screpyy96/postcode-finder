@@ -7,6 +7,6 @@ export const initialFormValues = {
 export const postcodeSchema = Yup.object().shape({
   autocomplete: Yup.string()
     .min(2, "Too short")
-    .max(7, "too long")
+    .max(8, "too long")
     .required("Required postcode"),
 });

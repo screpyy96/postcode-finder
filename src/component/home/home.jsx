@@ -48,7 +48,11 @@ const Home = () => {
 
   return (
     <AppWrapper>
-      <Formik initialValues={initialFormValues} onSubmit={onSubmit}>
+      <Formik
+        initialValues={initialFormValues}
+        onSubmit={onSubmit}
+        validationSchema={postcodeSchema}
+      >
         {({ isValid }) => (
           <Styledfrom>
             <Row>
